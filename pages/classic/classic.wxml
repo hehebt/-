@@ -1,0 +1,14 @@
+<!-- pages/classic/classic.wxml -->
+<view class="top">
+    <l-date index="{{classic.index}}" />
+    <view class="like_container">
+        <l-like bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+        <l-button class="share_btn" open-type="share">
+            <image class="share" slot="img" src="/images/icon/share.png"></image>
+        </l-button>
+    </view>
+</view>
+<l-movie wx:if="{{classic.type == '100'}}" imgSrc="{{classic.image}}" content="{{classic.content}}" />
+<l-music wx:if="{{classic.type == '200'}}" imgSrc="{{classic.image}}" content="{{classic.content}}" src="{{classic.url}}" />
+<l-essay wx:if="{{classic.type == '300'}}" imgSrc="{{classic.image}}" content="{{classic.content}}" />
+<l-nav title="{{classic.title}}" first="{{first}}" latest="{{latest}}" bind:todoEvent="onPeriodical" />

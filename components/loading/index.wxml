@@ -1,0 +1,6 @@
+<!-- components/loading/index.wxml -->
+<view class="container">
+    <view class="loading">
+      <!-- <text>Loading...</text> -->
+    </view>
+</view>

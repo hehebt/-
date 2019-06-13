@@ -1,0 +1,5 @@
+/* components/img-button/index.wxss */
+.container {
+    padding: 0 !important;
+    border: none !important;
+}

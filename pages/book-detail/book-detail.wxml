@@ -1,0 +1,98 @@
+<!-- pages/book-detail/book-detail.wxml -->
+<wxs src="../../utils/filter.wxs" module="filter"></wxs>
+<view class="container" wx:if="{{!loading}}">
+    <!-- 搜索部分 -->
+    <view class="head">
+        <image src="{{book.image}}" />
+        <text class="title">{{book.title}}</text>
+        <text class="author">{{book.author}}</text>
+    </view>
+
+    <!-- 短评部分 -->
+    <view class="sub_container">
+        <text class="headline">短评</text>
+        <text class="shadow" wx:if="{{comments==false}}">快来添加短评吧！</text>
+        <view class="comment_container">
+            <block wx:for="{{filter.limit(comments,10)}}" wx:key="index">
+                <l-tag tag-class="{{tool.highlight(index,'ex_tag1','ex_tag2')}}" text="{{item.content}}">
+                    <text slot="after" class="num">+{{item.nums}}</text>
+                </l-tag>
+            </block>
+        </view>
+    </view>
+
+    <!-- 内容简介 -->
+    <view class="sub_container">
+        <text class="headline">内容简介</text>
+        <text class="content" decode="{{true}}">{{filter.format(book.summary)}}</text>
+    </view>
+    <!-- 书籍信息 -->
+    <view class="sub_container">
+        <text class="headline">书籍信息</text>
+        <view class="detail_container">
+            <view class="vertical description">
+                <text>出版社</text>
+                <text>出版年</text>
+                <text>页数</text>
+                <text>定价</text>
+                <text>装帧</text>
+            </view>
+            <view class="vertical">
+                <text>{{book.publisher}}</text>
+                <text>{{book.pubdate}}</text>
+                <text>{{book.pages}}</text>
+                <text>{{book.price}}</text>
+                <text>{{book.binding}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 输入短评 -->
+    <view class="post_container" hidden="{{post}}">
+        <view class="post_fake" bind:tap="onFakePost">
+            <text>输入短评</text>
+        </view>
+        <view class="like_container">
+            <l-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" ></l-like>
+            <l-button class="share_btn" open-type="share">
+                <image class="share" slot="img" src="/images/icon/share.png"></image>
+            </l-button>
+        </view>
+    </view>
+</view>
+
+
+<!-- 短评输入界面 -->
+<view class="posting_container" hidden="{{!post}}">
+    <view class="post_header">
+        <text wx:if="{{comments}}" >仅可点击标签+1</text>
+        <text wx:else >暂无短评</text>
+        <text bind:tap="onCancel" class="cancel">取消</text>
+    </view>
+    <view class="comment_container">
+            <block wx:for="{{filter.limit(comments,3)}}" wx:key="index">
+                <l-tag bind:getText="onPost" tag-class="{{tool.highlight(index,'ex_tag1','ex_tag2')}}" text="{{item.content}}">
+                    <text slot="after" class="num">+{{item.nums}}</text>
+                </l-tag>
+            </block>
+    </view>
+    <input bind:confirm="onpPsot" class="post" placeholder="最多12个字" />
+</view>
+
+<l-mask wx:if="{{post}}"></l-mask>
+
+
+<wxs module="tool">
+    var highlight = function(index,class1,class2){
+        if(index==0){
+            return class1
+        }
+        if(index==1){
+            return class2
+        }
+        return ''
+    }
+    module.exports = {
+        highlight:highlight
+    }
+</wxs>

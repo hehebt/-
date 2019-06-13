@@ -1,0 +1,10 @@
+<!--components/classic/movie/index.wxml-->
+<view hidden="{{hidden}}" class="container">
+    <view class="">
+        <image class="classic_img" src="{{imgSrc}}" mode="widthFix" lazy-load="true" />
+    </view>
+    <view class="classic_text">
+        <image class="classic_tag" src="images/movie@tag.png" />
+        <text class="classic_content">{{content}}</text>
+    </view>
+</view>

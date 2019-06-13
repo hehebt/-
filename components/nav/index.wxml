@@ -1,0 +1,6 @@
+<!--components/nav/index.wxml-->
+<view class="nav_warp">
+    <image bind:tap="onPervious" class="nav_previous" src="{{first?srcPerviousDis:srcPervious}}"></image>
+    <text class="title">{{title}}</text>
+    <image bind:tap="onNext" class="nav_next" src="{{latest?srcNextDis:srcNext}}"></image>
+</view>

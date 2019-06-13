@@ -1,0 +1,24 @@
+/* components/date/index.wxss */
+.episode {
+    display: flex;  
+}
+.episode_index .no {
+    font-size: 28rpx;
+    color: #666;
+}
+.episode_index .index {
+    font-size: 50rpx;
+    font-weight: bold;
+    color: #000;
+}
+.line {
+    width: 2px;
+    height: 50rpx;
+    background-color: #000;
+    margin: 10rpx 10rpx 0;
+}
+.episode_date {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

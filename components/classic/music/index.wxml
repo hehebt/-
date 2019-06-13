@@ -1,0 +1,7 @@
+<!--components/classic/music/index.wxml-->
+<view hidden="{{hidden}}" class="container">
+    <image class="classic_img" mode="widthFix" src="{{imgSrc}}" lazy-load="{{true}}" />
+    <image class="play_img" bind:tap="onPlay" mode="widthFix" src="{{playing?pauseSrc:playSrc}}" />
+    <image class="tag" mode="widthFix" src="{{imgTag}}" />
+    <text class="content" >{{content}}</text>
+</view>

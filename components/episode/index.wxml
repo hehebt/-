@@ -1,0 +1,14 @@
+<!-- components/date/index.wxml -->
+<wxs module="episode" src="episode.wxs"></wxs>
+
+<view class="episode">
+    <view class="episode_index">
+        <text class="no">NO.</text>
+        <text class="index">{{episode.formatNumber(index)}}</text>
+    </view>
+    <view class="line"></view>
+    <view class="episode_date">
+        <text class="year">{{year}}</text>
+        <text class="month">{{month}}</text>
+    </view>
+</view>

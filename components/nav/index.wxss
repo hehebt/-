@@ -1,0 +1,18 @@
+/* components/nav/index.wxss */
+.nav_warp {
+    width: 666rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_warp {
+    background-color: #f7f7f7;
+}
+.nav_warp image {
+    width: 80rpx;
+    height: 80rpx;
+}
+.nav_warp text {
+    color: #888;
+    font-size: 28rpx;
+}
